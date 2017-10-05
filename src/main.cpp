@@ -41,19 +41,19 @@ int main()
   pid.Init(kp, ki, kd);
 
   /*
-	0.05 0.0 0.0 - Initial guess, looks like proportion compensation (P) is not agressive enough to make curves.
-	0.1 0.0 0.0  - P controller increased, oscillation looks fast enough but it is badly overshooting, it needs to adjust D controller.
-	0.1 0.0 0.5  - D controller increased, it drives very well for Throttle = 0.3. Let's try higher speeds.
-	0.1 0.0 0.5  - Tried the same hyperparameters for Throttle = 0.5, but noted that faster we go, less P controller we need, let's play with that.
-	0.06 0.0 0.5 - As expected, decreasing P for faster speed works. It drives ok for Throttle = 0.5.
-				   The funny thing here is that in my computer I was running the simulator using window 800x600 in "simple" mode,
-				   and it was doing ok, but when I turned on the software to record my screen it started to fail. Then I turned off the software to record
-				   and the model was back to normal and doing ok. So my guess is that the software recording was making the steering calculation slower.
-				   I decided to improve the runtime by using the window 800x600 in "fast" mode, and then I could make it fine even with the software
-				   to record the screen turned on. Interesting finding.
-	0.03 0.0 0.5 - I did several trials for Throttle = 0.7 by reducing P controller, but for this track my car had a high average speed for Throttle=0.5 already.
-				   My bet is that I may increase speed in straight sections of the track, but it would require to PID control the speed as well.
-				   I will not implement it at this time, and will revisit the project in the future for futher improvements.
+	0.05 0.0 0.0 - Initial guess, looks like proportion compensation (P) is not aggressive enough to make curves.
+    0.1 0.0 0.0  - P controller increased, oscillation looks fast enough, but it is badly overshooting, it needs to adjust D controller.
+    0.1 0.0 0.5  - D controller increased, it drives very well for Throttle = 0.3. Let's try higher speeds.
+    0.1 0.0 0.5  - Tried the same hyperparameters for Throttle = 0.5, but noted that faster we go, less P controller we need, let's play with that.
+    0.06 0.0 0.5 - As expected, decreasing P for faster speed works. It drives ok for Throttle = 0.5.
+                   The funny thing here is that on my computer I was running the simulator using window 800x600 in "simple" mode,
+                   and it was doing ok, but when I turned on the software to record my screen, it started to fail. Then I turned off the software to record,
+                   and the model was back to normal and doing ok. So I guess that the software recording was making the steering calculation slower.
+                   I decided to improve the runtime by using the window 800x600 in "fast" mode,
+                   and then I could make it okay even with the software to record the screen turned on. Interesting finding.
+    0.03 0.0 0.5 - I did several trials for Throttle = 0.7 by reducing P controller, but for this track, my car had a high average speed for Throttle=0.5 already.
+                   I bet that I may increase speed in straight sections of the track, but it would require to PID control the speed as well.
+                   I will not implement it at this time and will revisit the project in the future for further improvements.
   */
 
   h.onMessage([&pid](uWS::WebSocket<uWS::SERVER> ws, char *data, size_t length, uWS::OpCode opCode) {
