@@ -50,3 +50,14 @@ Here are my most importants logs:
 
                    I bet that I may increase speed in straight sections of the track, but it would require to PID control the speed as well.
                    I will not implement it at this time and will revisit the project in the future for further improvements.
+
+## Movie Results
+
+[PID Controller Driving in a Simulator - Part1 Throttle=0.3](https://vimeo.com/236882504)** Click on this link to watch the the project video.
+[PID Controller Driving in a Simulator - Part2 Throttle=0.5](https://vimeo.com/236882801)** Click on this link to watch the the project video.
+
+## Acknowledgments / References
+
+* [Udacity Self-Driving Car Nanodegree](https://www.udacity.com/drive)
+
+
